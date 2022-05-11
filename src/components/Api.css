@@ -48,3 +48,36 @@
     background-color: transparent;
     border-collapse: collapse;
 }
+.card{
+    width: 18rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: .25rem;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}

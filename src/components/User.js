@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { Link, useParams } from "react-router-dom";
+import { BiEdit, BiTrash } from "react-icons/bi";
 
 function User(){
     const params = useParams();
@@ -33,22 +33,28 @@ function User(){
     return(
         <>
             <div className="usuario">
-            <div className="table-responsive" style={{'overflow-x': 'auto'}}>
-                    
-                <p>Usuario</p>
-                <table className="table" >
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>email</th>
-                </tr>
-                            <tr>
-                                <td>{user.firstName}</td>
-                                <td>{user.lastName}</td>
-                                <td>{user.email}</td>
-                            </tr>
-                </table>
-            </div>
+                <div className="card">
+                    <img src={`http://localhost:3030/profileImages/${user.image}`} className="card-img-top" alt="" />
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">{user.firstName} {user.lastName}</li>
+                        <li className="list-group-item">{user.email}</li>
+                        <li className="list-group-item">{user.birthDate}</li>
+                    </ul>
+                    <div className="card-body">
+                        <h5 className="card-title">{user.userName}</h5>
+                        <p className="card-text">{user.province} {user.city} {user.address} {user.country}.</p>
+                    </div>
+                    <div className="card-body">
+                        <Link to={`/user/${user.email}`} className="card-link">
+                            <BiEdit className="icon"/>
+                        </Link>
+                        <Link to={`/user/${user.email}`} className="card-link">
+                            <BiTrash className="icon"/>
+                        </Link>
+                    </div>
+                </div>
+                <div className="table-responsive" style={{'overflow-x': 'auto'}}>
+                </div>
             </div>
         </>
     )
